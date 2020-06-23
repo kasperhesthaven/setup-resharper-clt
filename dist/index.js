@@ -4742,21 +4742,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = __webpack_require__(470);
 const tool_cache_1 = __webpack_require__(533);
-const IS_WINDOWS = process.platform === 'win32';
+const IS_WINDOWS = process.platform === "win32";
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const version = core_1.getInput('resharper-version');
+            const version = core_1.getInput("resharper-version");
             const downloadUrl = IS_WINDOWS
                 ? `https://download.jetbrains.com/resharper/ReSharperUltimate.${version}/JetBrains.ReSharper.CommandLineTools.${version}.zip`
                 : `https://download.jetbrains.com/resharper/ReSharperUltimate.${version}/JetBrains.ReSharper.CommandLineTools.Unix.${version}.tar.gz`;
             console.log(`Downloading version ${version} from: `, downloadUrl);
             const downloadPath = yield tool_cache_1.downloadTool(downloadUrl);
-            console.log('Extracting ReSharper CTL from: ', downloadPath);
+            console.log("Extracting ReSharper CLT from: ", downloadPath);
             const extractionPath = IS_WINDOWS
                 ? yield tool_cache_1.extractZip(downloadPath)
                 : yield tool_cache_1.extractTar(downloadPath);
-            console.log('Adding ReSharper CTL to path with value:', extractionPath);
+            console.log("Adding ReSharper CLT to path with value:", extractionPath);
             core_1.addPath(extractionPath);
         }
         catch (error) {
