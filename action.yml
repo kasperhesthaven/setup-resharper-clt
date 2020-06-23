@@ -1,0 +1,14 @@
+name: 'Setup ReSharper CLT'
+description: 'Downloads the ReSharper Command Line Tools (CLT) by version number and adds it to your PATH'
+author: 'Kasper Hesthaven'
+branding:
+  icon: play
+  color: green
+inputs:
+  resharper-version:
+    description: 'ReSharper version to use. Examples: 2020.1.3, 2019.3, 2019.2. (default: 2020.1.3)'
+    required: true
+    default: 2020.1.3
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
