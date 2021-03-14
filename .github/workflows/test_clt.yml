@@ -1,0 +1,34 @@
+name: Test CLT
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+
+  test:
+    name: Test CLT # Ensure action & tools run on a clean machine
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Run action
+        uses: ./
+
+      - name: Test CleanupCode
+        working-directory: __tests__
+        run: cleanupcode.sh MockProject.sln
+
+      - name: Test dupFinder
+        working-directory: __tests__
+        run: dupfinder.sh MockProject.sln
+
+      - name: Test InspectCode
+        working-directory: __tests__
+        run: inspectcode.sh MockProject.sln -o=MockAnalysis.xml
