@@ -11,6 +11,15 @@ curly_bracket_next_line = false
 spaces_around_operators = false
 spaces_around_brackets = both
 
-[*.ts]
+[*.json]
+indent_style = space
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_style = space
+
+[*.{ts,js}]
 indent_style = tab
 indent_size = 2
