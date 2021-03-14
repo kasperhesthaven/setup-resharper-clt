@@ -1,25 +1,32 @@
 {
 	"name": "setup-resharper-clt",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
-	"description": "Setup ReSharper CLT action",
+	"description": "Setup ReSharper command lint tools GitHub action",
 	"main": "lib/setup-resharper-clt.js",
 	"scripts": {
-		"build": "tsc & ncc build"
+		"lint": "eslint-config-prettier ./src/setup-resharper-clt.ts",
+		"build": "tsc",
+		"pack": "ncc build"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kasperhesthaven/setup-resharper-clt.git"
 	},
 	"author": "Kasper Hesthaven",
-	"license": "MIT",
+	"license": "Unlicense",
 	"dependencies": {
 		"@actions/core": "^1.2.6",
-		"@actions/tool-cache": "^1.5.5"
+		"@actions/tool-cache": "^1.6.1"
 	},
 	"devDependencies": {
-		"@types/node": "^14.0.13",
-		"@zeit/ncc": "^0.22.3",
-		"typescript": "^3.9.5"
+		"@types/node": "^14.14.34",
+		"@typescript-eslint/eslint-plugin": "^4.17.0",
+		"@typescript-eslint/parser": "^4.17.0",
+		"@vercel/ncc": "^0.27.0",
+		"eslint": "^7.22.0",
+		"eslint-config-prettier": "^8.1.0",
+		"prettier": "^2.2.1",
+		"typescript": "^4.2.3"
 	}
 }
