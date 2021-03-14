@@ -1,24 +1,18 @@
-import { getInput, addPath, setFailed } from "@actions/core";
-import { downloadTool, extractTar, extractZip } from "@actions/tool-cache";
-
-const IS_WINDOWS = process.platform === "win32";
+import { getInput, addPath, setFailed } from '@actions/core';
+import { downloadTool, extractZip } from '@actions/tool-cache';
 
 async function run(): Promise<void> {
 	try {
-		const version: string = getInput("resharper-version");
-		const downloadUrl: string = IS_WINDOWS
-			? `https://download.jetbrains.com/resharper/ReSharperUltimate.${version}/JetBrains.ReSharper.CommandLineTools.${version}.zip`
-			: `https://download.jetbrains.com/resharper/ReSharperUltimate.${version}/JetBrains.ReSharper.CommandLineTools.Unix.${version}.tar.gz`;
+		const version: string = getInput('resharper-version');
+		const downloadUrl = `https://download.jetbrains.com/resharper/dotUltimate.${version}/JetBrains.ReSharper.CommandLineTools.${version}.zip`;
 
 		console.log(`Downloading version ${version} from: `, downloadUrl);
 		const downloadPath: string = await downloadTool(downloadUrl);
 
-		console.log("Extracting ReSharper CLT from: ", downloadPath);
-		const extractionPath: string = IS_WINDOWS
-			? await extractZip(downloadPath)
-			: await extractTar(downloadPath);
+		console.log('Extracting ReSharper CLT from: ', downloadPath);
+		const extractionPath: string = await extractZip(downloadPath);
 
-		console.log("Adding ReSharper CLT to path with value:", extractionPath);
+		console.log('Adding ReSharper CLT to path with value:', extractionPath);
 		addPath(extractionPath);
 	} catch (error) {
 		setFailed(error.message);
