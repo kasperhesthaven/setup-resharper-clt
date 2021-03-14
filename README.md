@@ -2,8 +2,8 @@
 
 [![GitHub release](https://img.shields.io/github/release/kasperhesthaven/setup-resharper-clt.svg)](https://gitHub.com/kasperhesthaven/setup-resharper-clt/releases/)
 [![GitHub license](https://img.shields.io/github/license/kasperhesthaven/setup-resharper-clt.svg)](https://github.com/kasperhesthaven/setup-resharper-clt/blob/master/LICENSE)
-[![Build & pack](https://github.com/kasperhesthaven/setup-resharper-cltactions/workflows/build.yml/badge.svg)](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/build.yml)
-[![Test CLT](https://github.com/kasperhesthaven/setup-resharper-cltactions/workflows/test_clt.yml/badge.svg)](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/test_clt.yml)
+[![Build & pack](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/build.yml/badge.svg)](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/build.yml)
+[![Test CLT](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/test_clt.yml/badge.svg)](https://github.com/kasperhesthaven/setup-resharper-clt/actions/workflows/test_clt.yml)
 
 This action downloads the [ReSharper command line tools](https://www.jetbrains.com/resharper/download/#section=commandline) by version number and adds it to your path, enabling you to:
 
