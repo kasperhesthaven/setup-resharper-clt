@@ -9,10 +9,17 @@ jobs:
 
   test:
     name: Test CLT # Ensure action & tools run on a clean machine
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
         matrix:
             os: [macos-latest, windows-latest, ubuntu-latest]
+            include:
+            - os: macos-latest
+              ext: '.sh'
+            - os: windows-latest
+              ext: '.exe'
+            - os: ubuntu-latest
+              ext: '.sh'
 
     steps:
       - name: Checkout repository
@@ -23,12 +30,12 @@ jobs:
 
       - name: Test CleanupCode
         working-directory: __tests__
-        run: cleanupcode.sh MockProject.sln
+        run: cleanupcode${{ matrix.ext }} MockProject.sln
 
       - name: Test dupFinder
         working-directory: __tests__
-        run: dupfinder.sh MockProject.sln
+        run: dupfinder${{ matrix.ext }} MockProject.sln
 
       - name: Test InspectCode
         working-directory: __tests__
-        run: inspectcode.sh MockProject.sln -o=MockAnalysis.xml
+        run: inspectcode${{ matrix.ext }} MockProject.sln -o=MockAnalysis.xml
