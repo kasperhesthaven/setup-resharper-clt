@@ -16,7 +16,7 @@
 	"author": "Kasper Hesthaven",
 	"license": "Unlicense",
 	"dependencies": {
-		"@actions/core": "^1.2.6",
+		"@actions/core": "^1.10.0",
 		"@actions/tool-cache": "^1.6.1"
 	},
 	"devDependencies": {
